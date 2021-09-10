@@ -1,10 +1,13 @@
 console.log("Hello World")
 
-const redBox = document.querySelector('.resize-box')
-const xAxis = document.getElementById('x-axis')
+let redBox = document.querySelector('.resize-box')
+let xAxis = document.getElementById('x-axis')
+const heightInput = document.getElementById('height')
+
 
 const widthInput = document.getElementById('width')
 
+/////////////////width box///////////////////////
 widthInput.addEventListener('keyup', () => {
 
   let isTooBig = false;
@@ -36,7 +39,7 @@ if (isTooBig){
 })
 
 
-
+////////////////x-axis/////////////////////////////
 xAxis.addEventListener('keyup', () => {
   //create variable for user input 
   let isTooBig = false;
@@ -60,6 +63,20 @@ redBox.style.width = widthRed + "px";
 if (isTooBig){
   alert('AH!!! TOO BIG! STAY IN THE LINES!')
 }
+})
+
+/////////////height box/////////////////////////
+
+height.addEventListener('keyup', () => {
+
+  let newHeight = Number (
+    document.getElementById('height').value
+
+  )
+
+  redBox.style.height = newHeight + "px"
+
+
 })
 
 
