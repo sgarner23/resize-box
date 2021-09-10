@@ -3,6 +3,7 @@ console.log("Hello World")
 let redBox = document.querySelector('.resize-box')
 let xAxis = document.getElementById('x-axis')
 const heightInput = document.getElementById('height')
+let yAxis = document.getElementById('y-axis')
 
 
 const widthInput = document.getElementById('width')
@@ -30,7 +31,7 @@ widthInput.addEventListener('keyup', () => {
   }
 
 redBox.style.left = userX + "px";
-redBox.style.width = width + "px"; 
+redBox.style.width = (width - 3) + "px"; 
 
 if (isTooBig){
   alert('AH!!! TOO BIG! STAY IN THE LINES!')
@@ -52,8 +53,8 @@ xAxis.addEventListener('keyup', () => {
 
   console.log(userX, widthRed, widthGreen);
   if (userX + widthRed > widthGreen) {
-    console.log("Inside if statement");
-    widthRed = widthGreen - userX;
+    console.log("Inside if statement test");
+    widthRed = widthGreen - userX ;
     isTooBig = true;
   }
 
@@ -67,16 +68,73 @@ if (isTooBig){
 
 /////////////height box/////////////////////////
 
-height.addEventListener('keyup', () => {
-
-  let newHeight = Number (
-    document.getElementById('height').value
-
+heightInput.addEventListener('keyup', () => {
+  let isTooBig = false;
+  let widthRed = document.querySelector('.resize-box').offsetWidth
+  const userX = Number(
+    document.getElementById('x-axis').value
   )
+  const userY = Number(
+    document.getElementById('y-axis').value
+  )
+  let newHeight = Number (
+      document.getElementById('height').value
+  
+    )
 
-  redBox.style.height = newHeight + "px"
+  const heightGreen = document.querySelector('.box-holder').offsetHeight
+
+ 
+  if (userY + newHeight > heightGreen) {
+    newHeight = heightGreen - userY ;
+    isTooBig = true;
+  }
+
+redBox.style.top = userY + "px";
+redBox.style.left = userX + "px";
+redBox.style.height = (newHeight - 3) + "px"; 
+redBox.style.width = widthRed + "px"; 
+
+if (isTooBig){
+  alert('AH!!! TOO BIG! STAY IN THE LINES!')
+
+}
 
 
 })
+
+//////////////y-axis/////////////////////////
+
+yAxis.addEventListener('keyup', () => {
+  let isTooBig = false;
+  let widthRed = document.querySelector('.resize-box').offsetWidth
+  const userX = Number(
+    document.getElementById('x-axis').value
+  )
+  const userY = Number(
+    document.getElementById('y-axis').value
+  )
+  let heightRed = document.querySelector('.resize-box').offsetHeight
+
+  const heightGreen = document.querySelector('.box-holder').offsetHeight
+
+ 
+  if (userY + heightRed > heightGreen) {
+    heightRed = heightGreen - userY ;
+    isTooBig = true;
+  }
+
+redBox.style.top = userY + "px";
+redBox.style.left = userX + "px";
+redBox.style.height = heightRed + "px"; 
+redBox.style.width = widthRed + "px"; 
+
+if (isTooBig){
+  alert('AH!!! TOO BIG! STAY IN THE LINES!')
+}
+})
+
+
+
 
 

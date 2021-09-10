@@ -26,6 +26,16 @@ body {
   font-size: xx-large;
   justify-content: center;
   align-items: center;
+  padding-top: 20px;
+}
+
+.red-box-pic {
+  display: none;
+  height: 70px;
+  width: auto;
+  border-radius: 15px;
+  padding-top: 10px;
+  margin-left: 10px;
 }
 
 .form {
@@ -40,25 +50,17 @@ body {
 
 .lorens-div {
   width: 100%;
-  /* height: calc(100vh - 250px); */
   min-height: calc(100vh - 450px);
-  /* border: 1px solid blue; */
   display: flex;
   align-items: center;
   justify-content: center;
   padding-bottom: 20px;
 }
 .box-holder {
-  /* display: flex; */
   border: 2px solid green;
   height: 500px;
   width: 90%;
   margin-top: 50px;
-  /* margin-left: auto;
-  margin-right: auto; */
-  /* position: relative; */
-  /* align-items: center;
-  justify-content: center; */
   position: relative;
   
 }
@@ -68,9 +70,8 @@ body {
   width: 50px;
   height: 50px;
   border: 2px solid red;
-
   top: 0px;
   left: 0px;
-  /* transform: translate(-50%, -50%) */
+ 
   
 }
